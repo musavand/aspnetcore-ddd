@@ -1,0 +1,12 @@
+D:\external-project\mason-chase\DDD_Crud\Contact.Management.Infrastructure\bin\Debug\net5.0\Contact.Management.Infrastructure.deps.json
+D:\external-project\mason-chase\DDD_Crud\Contact.Management.Infrastructure\bin\Debug\net5.0\Contact.Management.Infrastructure.dll
+D:\external-project\mason-chase\DDD_Crud\Contact.Management.Infrastructure\bin\Debug\net5.0\ref\Contact.Management.Infrastructure.dll
+D:\external-project\mason-chase\DDD_Crud\Contact.Management.Infrastructure\bin\Debug\net5.0\Contact.Management.Infrastructure.pdb
+D:\external-project\mason-chase\DDD_Crud\Contact.Management.Infrastructure\obj\Debug\net5.0\Contact.Management.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\external-project\mason-chase\DDD_Crud\Contact.Management.Infrastructure\obj\Debug\net5.0\Contact.Management.Infrastructure.AssemblyInfoInputs.cache
+D:\external-project\mason-chase\DDD_Crud\Contact.Management.Infrastructure\obj\Debug\net5.0\Contact.Management.Infrastructure.AssemblyInfo.cs
+D:\external-project\mason-chase\DDD_Crud\Contact.Management.Infrastructure\obj\Debug\net5.0\Contact.Management.Infrastructure.csproj.CoreCompileInputs.cache
+D:\external-project\mason-chase\DDD_Crud\Contact.Management.Infrastructure\obj\Debug\net5.0\Contact.Management.Infrastructure.dll
+D:\external-project\mason-chase\DDD_Crud\Contact.Management.Infrastructure\obj\Debug\net5.0\ref\Contact.Management.Infrastructure.dll
+D:\external-project\mason-chase\DDD_Crud\Contact.Management.Infrastructure\obj\Debug\net5.0\Contact.Management.Infrastructure.pdb
+D:\external-project\mason-chase\DDD_Crud\Contact.Management.Infrastructure\obj\Debug\net5.0\Contact.Management.Infrastructure.csproj.AssemblyReference.cache
