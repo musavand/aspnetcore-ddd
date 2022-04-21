@@ -1,0 +1,5 @@
+D:\external-project\mason-chase\DDD_Crud\Contact.Management.Identity\obj\Debug\netstandard2.1\Contact.Management.Identity.csproj.AssemblyReference.cache
+D:\external-project\mason-chase\DDD_Crud\Contact.Management.Identity\obj\Debug\netstandard2.1\Contact.Management.Identity.GeneratedMSBuildEditorConfig.editorconfig
+D:\external-project\mason-chase\DDD_Crud\Contact.Management.Identity\obj\Debug\netstandard2.1\Contact.Management.Identity.AssemblyInfoInputs.cache
+D:\external-project\mason-chase\DDD_Crud\Contact.Management.Identity\obj\Debug\netstandard2.1\Contact.Management.Identity.AssemblyInfo.cs
+D:\external-project\mason-chase\DDD_Crud\Contact.Management.Identity\obj\Debug\netstandard2.1\Contact.Management.Identity.csproj.CoreCompileInputs.cache

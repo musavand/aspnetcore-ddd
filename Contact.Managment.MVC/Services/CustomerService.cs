@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Contact.Management.Appliaction.DTOs.Customer;
+//using Contact.Management.Appliaction.DTOs.Customer;
 using AutoMapper;
 namespace Contact.Managment.MVC.Services
 {
@@ -14,7 +14,7 @@ namespace Contact.Managment.MVC.Services
         private readonly Mapper _mapper;
         private readonly ILocalStorageService _localStorage;
         private readonly IClient _httpClient;
-        public CustomerService(Mapper mapper, ILocalStorageService localStorage, IClient httpClient):base(httpClient,localStorage)
+        public CustomerService(Mapper mapper, Client httpClient, ILocalStorageService localStorage):base(httpClient,localStorage)
         {
             _mapper = mapper;
             _localStorage = localStorage;
@@ -26,42 +26,76 @@ namespace Contact.Managment.MVC.Services
             try
             {
                 var response = new Response<int>();
-                CreateCustomerDto createCustomer = _mapper.Map<CreateCustomerDto>(customer);
-                var apiresponse = await _httpClient.CustomerPOSTAsync(createCustomer);
-                if (apiresponse.Succes)
+                CreateCustomerDto createCustomerDto = _mapper.Map<CreateCustomerDto>(customer);
+                var apiResponse=await _client.CustomerPOSTAsync(createCustomerDto);
+                if (apiResponse.Success)
                 {
-                    response.Data = apiresponse.Id;
+                    response.Data = apiResponse.Id;
+                    response.Success = true;
                 }
                 else
                 {
-
+                    foreach (var error in apiResponse.Errors)
+                    {
+                        response.ValidationErrors += error + Environment.NewLine;
+                    }
                 }
+                return response;
             }
-            catch (Exception)
+            catch (ApiException exp)
             {
 
-                throw;
+                return ConvertApiExecptions<int>(exp);
+            }
+            
+        }
+
+        public  async Task<Response<int>> DeleteCustomer(int id)
+        {
+            try
+            {
+                await _client.CustomerDELETEAsync(id);
+                return new Response<int>() { Success = true };
+            }
+            catch (ApiException ex)
+            {
+
+                return ConvertApiExecptions<int>(ex);
             }
         }
 
-        public Task DeleteCustomer(CustomerVM customer)
+        
+
+        public async Task<CustomerVM> GetCustomerDetail(int id)
         {
-            throw new NotImplementedException();
+            var customer = await _client.CustomerGETAsync(id);
+            return _mapper.Map<CustomerVM>(customer);
         }
 
-        public Task<CustomerVM> GetCustomerDetail(int id)
+        public async Task<List<CustomerVM>> GetCustomers()
         {
-            throw new NotImplementedException();
+            var customers = await _client.CustomerAllAsync();
+            return _mapper.Map<List<CustomerVM>>(customers);
+
         }
 
-        public Task<List<CustomerVM>> GetCustomers()
+        public  async Task<Response<int>> UpdateCustomer(int id,CustomerVM customer)
         {
-            throw new NotImplementedException();
+            try
+            {
+                CreateCustomerDto customerDto = _mapper.Map<CreateCustomerDto>(customer);
+                await _client.CustomerPUTAsync(customerDto);
+                return new Response<int>() { Success = true };
+
+
+            }
+            catch (ApiException  exp)
+            {
+
+                return ConvertApiExecptions<int>(exp);
+            }
         }
 
-        public Task UpdateCustomer(CustomerVM customer)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

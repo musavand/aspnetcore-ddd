@@ -13,7 +13,7 @@ namespace Contact.Managment.MVC.Contracts
         Task<CustomerVM> GetCustomerDetail(int id);
         Task<Response<int>> CreateCustomer(CreateCustomerVM customer);
 
-        Task UpdateCustomer(CustomerVM customer);
-        Task DeleteCustomer(CustomerVM customer);
+        Task<Response<int>> UpdateCustomer(int Id , CustomerVM customer);
+        Task<Response<int>> DeleteCustomer(int Id);
     }
 }

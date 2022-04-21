@@ -29,10 +29,9 @@ namespace Contact.Managment.MVC
         {
             //musavand
             //set for api ssl,http port
-            services.AddHttpClient<IClient, Client>(cl=>cl.BaseAddress = new Uri ("https://localhost:44327"));
-            //services.AddAutoMapper(Assembly.GetExecutingAssembly);
-            //services.AddScoped<ICustomerService, CustomerService>();
-            services.AddScoped<CustomerService, CustomerService>();
+            services.AddHttpClient<IClient, Client>(cl=>cl.BaseAddress = new Uri ("https://localhost:5001"));
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<ICustomerService, CustomerService>();            
             services.AddSingleton<ILocalStorageService, LocalStorageService>();
             //musavand
             services.AddControllersWithViews();

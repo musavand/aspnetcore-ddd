@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Contact.Management.Persistence;
 using Contact.Management.Appliaction;
+using Contact.Management.Identity;
 
 namespace Contact.Management.Api
 {
@@ -29,14 +30,20 @@ namespace Contact.Management.Api
         public void ConfigureServices(IServiceCollection services)
         {
             //musavand add backend services
+            AddSwaggerDoc(services);
             services.ConfigurePersistenceService(Configuration);
             services.ConfigureApplicationServices();
+            //add authentication service form  Contact.Management.Identity projct  
+            services.ConfigureIdentityServices(Configuration);
             //musavand add backend services
             services.AddControllers();
+            /*
+            comment by musavand
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Contact.Management.Api", Version = "v1"  });
             });
+            */
             ///set api policy
             services.AddCors(o=>o.AddPolicy("CorsPolicy",
                 builder => builder.AllowAnyOrigin()
@@ -54,6 +61,7 @@ namespace Contact.Management.Api
                
             }
             //musavand
+            app.UseAuthentication();
             //use suager at all mode
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Contact.Management.Api v1"));
@@ -69,5 +77,42 @@ namespace Contact.Management.Api
                 endpoints.MapControllers();
             });
         }
-    }
+
+        private void AddSwaggerDoc(IServiceCollection services)
+        {
+            services.AddSwaggerGen(c =>
+            {
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = @"mehdi mosavand use Bearer schema",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement() {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            },
+                            Scheme ="oauth2",
+                            Name="Bearer",
+                            In= ParameterLocation.Header
+                        },
+                        new List<string>()
+                    }
+                });
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Musavand"
+                });
+            });
+
+        }
+        }
 }

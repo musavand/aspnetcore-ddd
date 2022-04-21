@@ -11,6 +11,6 @@ namespace Contact.Managment.MVC.Services.Base
     {
         public HttpClient HttpClient { get; }
 
-        Task CustomerPOSTAsync(CreateCustomerDto createCustomer);
+        //Task CustomerPOSTAsync(CreateCustomerDto createCustomer);
     }
 }

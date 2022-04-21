@@ -15,7 +15,7 @@ namespace Contact.Managment.MVC.Contracts
             {
                 AutoLoad = true,
                 AutoSave = true,
-                FileName = "CustomerLoaclStoarge"
+                Filename = "CustomerLoaclStoarge"
             };
             _storge = new LocalStorage(config);
         }
@@ -23,7 +23,7 @@ namespace Contact.Managment.MVC.Contracts
         {
             foreach (var key in keys)
             {
-                _storge.remove(key);
+                _storge.Remove(key);
             }
         }
 
@@ -34,7 +34,7 @@ namespace Contact.Managment.MVC.Contracts
 
         public T GetStorageValue<T>(string key)
         {
-            _storge.Get<T>(key);
+            return _storge.Get<T>(key);
         }
 
         public void SetStorageValue<T>(string key, T value)

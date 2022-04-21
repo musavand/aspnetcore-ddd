@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Contact.Management.Appliaction\Contact.Management.Appliaction.csproj" />
     <ProjectReference Include="..\Contact.Management.Domain\Contact.Management.Domain.csproj" />
+    <ProjectReference Include="..\Contact.Management.Identity5\Contact.Management.Identity5.csproj" />
     <ProjectReference Include="..\Contact.Management.Infrastructure\Contact.Management.Infrastructure.csproj" />
     <ProjectReference Include="..\Contact.Management.Persistence\Contact.Management.Persistence.csproj" />
   </ItemGroup>

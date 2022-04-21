@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Contact.Management.Appliaction.Features.Customer.Requests.Queries;
 using Contact.Management.Appliaction.DTOs.Customer;
 using Contact.Management.Appliaction.Features.Customer.Requests.Commands;
-
+using Contact.Management.Appliaction.Responses;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Contact.Management.Api.Controllers
@@ -40,7 +40,7 @@ namespace Contact.Management.Api.Controllers
 
         // POST api/<CustomerController>
         [HttpPost]
-        public async Task<ActionResult>  Post([FromBody] CreateCustomerDto customer)
+        public async Task<ActionResult<BaseCommonResponse>>  Post([FromBody] CreateCustomerDto customer)
         { 
             var command = new CreateCustomerCommand { customerDto = customer };
             var response = await _mediator.Send(command);

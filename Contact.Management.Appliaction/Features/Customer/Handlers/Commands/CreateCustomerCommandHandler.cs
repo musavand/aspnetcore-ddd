@@ -47,5 +47,24 @@ namespace Contact.Management.Appliaction.Features.Customer.Handlers.Commands
             return response;
 
         }
+        //public async Task<int> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
+        //{
+        //    var response = new BaseCommonResponse();
+        //    var validator = new CreateCustomerDtoValidator();
+        //    var validateResult = await validator.ValidateAsync(request.customerDto);
+        //    if (!validateResult.IsValid)
+        //    {
+        //        // throw new ValidationException(validateResult);
+        //        response.Success = false;
+        //        response.Message = "Customer Creation Failed";
+        //        response.Errors = validateResult.Errors.Select(q => q.ErrorMessage).ToList();
+        //    }
+        //    var Customer = _mapper.Map<Contact.Management.Domain.Customer>(request.customerDto);
+        //    var _Customer = await _CustomerRepository.Add(Customer);
+
+
+        //    return _Customer.Id;
+
+        //}
     }
 }
