@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using FluentValidation;
 
@@ -25,7 +26,9 @@ namespace Contact.Management.Appliaction.DTOs.Customer.Validators
                .NotEmpty().WithMessage("{PropertyName}  is Required.")
                .NotNull()
                .MaximumLength(15).WithMessage("{PropertyName}  Exceded Than {ComparisonValue} Characters.")
-               ;
+               .Matches(new Regex(@"((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}")).WithMessage("PhoneNumber not valid");
+
+            ;
 
             RuleFor(p => p.BankAccountNumber)
                .NotEmpty().WithMessage("{PropertyName}  is Required.")
