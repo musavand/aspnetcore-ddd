@@ -24,7 +24,8 @@ namespace Contact.Management.Appliaction.DTOs.Customer.Validators
             RuleFor(p => p.PhoneNumber)
                .NotEmpty().WithMessage("{PropertyName}  is Required.")
                .NotNull()
-               .MaximumLength(15).WithMessage("{PropertyName}  Exceded Than {ComparisonValue} Characters.");
+               .MaximumLength(15).WithMessage("{PropertyName}  Exceded Than {ComparisonValue} Characters.")
+               ;
 
             RuleFor(p => p.BankAccountNumber)
                .NotEmpty().WithMessage("{PropertyName}  is Required.")
@@ -34,7 +35,8 @@ namespace Contact.Management.Appliaction.DTOs.Customer.Validators
             RuleFor(p => p.Email)
               .NotEmpty().WithMessage("{PropertyName}  is Required.")
               .NotNull()
-              .MaximumLength(50).WithMessage("{PropertyName}  Exceded Than {ComparisonValue} Characters.");
+              .MaximumLength(50).WithMessage("{PropertyName}  Exceded Than {ComparisonValue} Characters.")
+              .EmailAddress().WithMessage("{PropertyName}  Must Be  In Correct EMail Address Format .");
 
             /*
             RuleFor(p => p.DefaultDays)
