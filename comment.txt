@@ -1,0 +1,4 @@
+1-because of Google's libphonenumber library supported until.Net Framework4.6 is used data validation by FluentValidation
+methods
+2-I use visual studio 2022 and it dos not support Rider and it is under construction
+https://docs.microsoft.com/en-us/visualstudio/productinfo/vs-roadmap#editor
