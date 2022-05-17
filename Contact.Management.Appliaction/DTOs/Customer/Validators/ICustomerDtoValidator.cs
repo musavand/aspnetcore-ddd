@@ -33,7 +33,11 @@ namespace Contact.Management.Appliaction.DTOs.Customer.Validators
             RuleFor(p => p.BankAccountNumber)
                .NotEmpty().WithMessage("{PropertyName}  is Required.")
                .NotNull()
-               .MaximumLength(10).WithMessage("{PropertyName}  Exceded Than {ComparisonValue} Characters.");
+               .MaximumLength(10).WithMessage("{PropertyName}  Exceded Than {ComparisonValue} Characters.")
+               .Matches(new Regex(@"[A-Z]{ 2}\d{ 2} ?\d{ 4} ?\d{ 4} ?\d{ 4} ?\d{ 4} ?[\d]{ 0,2}")).WithMessage("PhoneNumber not valid");
+            ;
+            
+
 
             RuleFor(p => p.Email)
               .NotEmpty().WithMessage("{PropertyName}  is Required.")
